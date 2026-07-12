@@ -1,0 +1,100 @@
+# MindVault – Personal Knowledge Management App
+
+Build a premium, offline-first PKM web application using HTML5, CSS3, and Vanilla JS (ES6 modules). No frameworks.
+
+## Proposed Changes
+
+### CSS Foundation
+
+#### [NEW] [variables.css](file:///d:/code/Journal%20Planner/assets/css/variables.css)
+Color palette, typography, spacing, radius, shadows, z-index, transitions as CSS custom properties. Theme support (dark/light) via `data-theme`.
+
+#### [NEW] [reset.css](file:///d:/code/Journal%20Planner/assets/css/reset.css)
+Modern CSS reset.
+
+#### [NEW] [layout.css](file:///d:/code/Journal%20Planner/assets/css/layout.css)
+App shell: sidebar, navbar, main content area, grid layouts, page transitions.
+
+#### [NEW] [components.css](file:///d:/code/Journal%20Planner/assets/css/components.css)
+Cards, buttons, inputs, modals, toasts, tags, badges, editor toolbar, calendar grid, heatmap, mood selector, skeletons.
+
+#### [NEW] [animations.css](file:///d:/code/Journal%20Planner/assets/css/animations.css)
+Keyframes: fade-in, slide-in, ripple, skeleton shimmer, toast slide.
+
+#### [NEW] [responsive.css](file:///d:/code/Journal%20Planner/assets/css/responsive.css)
+Breakpoints for tablet (≤1024px) and mobile (≤768px). Sidebar collapse, FAB, stacked layouts.
+
+#### [NEW] [style.css](file:///d:/code/Journal%20Planner/assets/css/style.css)
+Master import of all CSS files.
+
+---
+
+### Core JS Infrastructure
+
+#### [NEW] [storage.js](file:///d:/code/Journal%20Planner/assets/js/storage.js)
+Abstract StorageManager class wrapping LocalStorage. CRUD for entries, notes, categories, tags, settings. Supabase-swappable interface.
+
+#### [NEW] [utils.js](file:///d:/code/Journal%20Planner/assets/js/utils.js)
+Date formatting, ID generation, debounce, word count, reading time, DOM helpers.
+
+#### [NEW] [router.js](file:///d:/code/Journal%20Planner/assets/js/router.js)
+Hash-based SPA router. Registers page render functions, shows/hides page sections.
+
+#### [NEW] [ui.js](file:///d:/code/Journal%20Planner/assets/js/ui.js)
+Toast notifications, confirm modals, loading skeletons, ripple effects, sidebar toggle.
+
+#### [NEW] [app.js](file:///d:/code/Journal%20Planner/assets/js/app.js)
+Bootstrap: init storage, register routes, bind global events, render initial page.
+
+---
+
+### Features
+
+#### [NEW] [editor.js](file:///d:/code/Journal%20Planner/assets/js/editor.js)
+ContentEditable-based rich text editor. Toolbar: bold, italic, underline, strikethrough, highlight, code, blockquote, lists, checklist, links, undo/redo. Markdown shortcuts.
+
+#### [NEW] [journal.js](file:///d:/code/Journal%20Planner/assets/js/journal.js)
+Journal page: auto-create today's entry, mood selector, category/tag pickers, autosave, word count, favorite/pin, archive/trash.
+
+#### [NEW] [notes.js](file:///d:/code/Journal%20Planner/assets/js/notes.js)
+Notes page: masonry/grid of note cards, color labels, CRUD, duplicate, move category, archive/trash.
+
+#### [NEW] [dashboard.js](file:///d:/code/Journal%20Planner/assets/js/dashboard.js)
+Dashboard: greeting, date, streak cards, recent entries, pinned/favorite itemsrnal, writing stats, calendar mini-preview, quote placeholder.
+
+#### [NEW] [calendar.js](file:///d:/code/Journal%20Planner/assets/js/calendar.js)
+Monthly calendar grid with entry indicators. Navigate months/years. Click date → open journal.
+
+#### [NEW] [search.js](file:///d:/code/Journal%20Planner/assets/js/search.js)
+Global search across entries & notes. Live search, result highlighting, search history.
+
+#### [NEW] [filters.js](file:///d:/code/Journal%20Planner/assets/js/filters.js)
+Filter system: date ranges, mood, category, tags, favorites, pinned, archived, trash.
+
+#### [NEW] [analytics.js](file:///d:/code/Journal%20Planner/assets/js/analytics.js)
+Stats cards, streak tracker, GitHub-style heatmap (canvas), tag/category bar charts, weekday activity.
+
+#### [NEW] [settings.js](file:///d:/code/Journal%20Planner/assets/js/settings.js)
+Theme toggle, accent color picker, font size, autosave toggle, export/import JSON, reset data.
+
+---
+
+### HTML
+
+#### [NEW] [index.html](file:///d:/code/Journal%20Planner/index.html)
+Single-page app shell. Sidebar nav, top navbar, page sections (dashboard, journal, notes, calendar, search, analytics, settings). ES6 module script entry point.
+
+## Verification Plan
+
+### Browser Testing
+- Open `index.html` via local dev server and visually verify:
+  1. Sidebar navigation switches pages correctly
+  2. Dashboard shows greeting, stats cards, recent entries
+  3. Journal creates today's entry, editor toolbar works (bold, italic, lists)
+  4. Notes can be created, colored, pinned
+  5. Calendar renders current month, clicking dates works
+  6. Search returns results with highlighting
+  7. Analytics shows stats and heatmap
+  8. Settings theme toggle switches dark/light
+  9. Responsive: resize to mobile width — sidebar collapses, FAB appears
+  10. Data persists after page reload (LocalStorage)
