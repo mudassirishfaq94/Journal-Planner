@@ -178,6 +178,20 @@
         align-items: center;
     }
 
+    .settings-row {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .settings-row__value {
+        width: auto;
+    }
+
+    .theme-switcher {
+        width: auto;
+    }
+
     .journal__actions {
         width: auto;
         margin-left: auto;
@@ -403,9 +417,9 @@ textarea.input {
     padding: var(--sp-xs) var(--sp-sm);
     border-bottom: 1px solid var(--border-color);
     background: var(--bg-card);
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    white-space: nowrap;
+    flex-wrap: wrap;
+    overflow: hidden;
+    white-space: normal;
 }
 
 .editor__toolbar-divider {
@@ -690,9 +704,11 @@ textarea.input {
 
 .settings-row {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
     padding: var(--sp-sm) 0;
+    gap: var(--sp-sm);
 }
 
 .settings-row__label {
@@ -704,6 +720,8 @@ textarea.input {
     display: flex;
     align-items: center;
     gap: var(--sp-sm);
+    flex-wrap: wrap;
+    width: 100%;
 }
 
 /* ---- Toggle Switch ---- */
@@ -743,6 +761,7 @@ textarea.input {
 .color-picker {
     display: flex;
     gap: var(--sp-xs);
+    flex-wrap: wrap;
 }
 
 .color-swatch {
@@ -770,9 +789,13 @@ textarea.input {
     background: var(--bg-input);
     border-radius: var(--radius-md);
     padding: 3px;
+    flex-wrap: wrap;
+    width: 100%;
 }
 
 .theme-option {
+    flex: 1;
+    text-align: center;
     padding: var(--sp-xs) var(--sp-md);
     border-radius: var(--radius-sm);
     font-size: var(--fs-sm);
